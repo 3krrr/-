@@ -1,7 +1,7 @@
 window.QUIZ_BANK = {
-  "version": "2026.09.27.1",
+  "version": "2026.09.27.async-v2",
   "title": "미래탐구 오랑우탄",
-  "notes": "원소는 한 종류의 원소로 이루어진 물질이라는 뜻으로 사용. 분류 문제는 별도 언급이 없으면 순물질. He·Ne·Ar은 중학교 기준에서 분자 X.",
+  "notes": "원소는 한 종류의 원소로 이루어진 물질이라는 뜻으로 사용. 분류 문제는 별도 언급이 없으면 순물질. He·Ne·Ar은 중학교 기준에서 분자 X. 앙금·불꽃·이온 생성 및 전자 증감 계산 문항은 제외. 이온 이름 직접 입력은 3음절 이하 중심.",
   "topics": [
     "물질 분류",
     "화학식 읽기",
@@ -11,15 +11,12 @@ window.QUIZ_BANK = {
     "이온 이름",
     "이온의 성질",
     "이온의 이동",
-    "이온의 생성",
-    "이온의 전자 수",
+    "다원자 이온 이름",
     "다원자 이온",
     "원소와 화합물",
     "원자와 분자",
     "오개념 판단",
     "주기율표",
-    "불꽃 반응",
-    "앙금 생성",
     "이온과 전기",
     "입자 모형",
     "핵심 용어"
@@ -7307,73 +7304,6 @@ window.QUIZ_BANK = {
       "answer": false
     },
     {
-      "id": "ion-H-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-H",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "H^+",
-      "caption": "",
-      "explain": "중성 원자가 전자 1개를 잃으면 양이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 0
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 0
-        }
-      ]
-    },
-    {
-      "id": "ion-H-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-H",
-      "prompt": "중성 원자가 전자를 몇 개 잃었을까?",
-      "formula": "H^+",
-      "caption": "",
-      "explain": "전하 +1은 전자 1개를 잃었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "1"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-H-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-H",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "H^+",
-      "caption": "양성자 1개",
-      "explain": "양성자 1개에서 잃은 전자 1개를 빼면 0개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "0"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
       "id": "ion-Li-01",
       "type": "text",
       "topic": "이온 이름",
@@ -7418,73 +7348,6 @@ window.QUIZ_BANK = {
       "enabled": true,
       "scope": "2022 핵심",
       "answer": false
-    },
-    {
-      "id": "ion-Li-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-Li",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "Li^+",
-      "caption": "",
-      "explain": "중성 원자가 전자 1개를 잃으면 양이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 0
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 0
-        }
-      ]
-    },
-    {
-      "id": "ion-Li-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-Li",
-      "prompt": "중성 원자가 전자를 몇 개 잃었을까?",
-      "formula": "Li^+",
-      "caption": "",
-      "explain": "전하 +1은 전자 1개를 잃었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "1"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-Li-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-Li",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "Li^+",
-      "caption": "양성자 3개",
-      "explain": "양성자 3개에서 잃은 전자 1개를 빼면 2개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "2"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
     },
     {
       "id": "ion-Na-01",
@@ -7533,73 +7396,6 @@ window.QUIZ_BANK = {
       "answer": false
     },
     {
-      "id": "ion-Na-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-Na",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "Na^+",
-      "caption": "",
-      "explain": "중성 원자가 전자 1개를 잃으면 양이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 0
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 0
-        }
-      ]
-    },
-    {
-      "id": "ion-Na-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-Na",
-      "prompt": "중성 원자가 전자를 몇 개 잃었을까?",
-      "formula": "Na^+",
-      "caption": "",
-      "explain": "전하 +1은 전자 1개를 잃었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "1"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-Na-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-Na",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "Na^+",
-      "caption": "양성자 11개",
-      "explain": "양성자 11개에서 잃은 전자 1개를 빼면 10개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "10"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
       "id": "ion-K-01",
       "type": "text",
       "topic": "이온 이름",
@@ -7644,73 +7440,6 @@ window.QUIZ_BANK = {
       "enabled": true,
       "scope": "2022 핵심",
       "answer": false
-    },
-    {
-      "id": "ion-K-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-K",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "K^+",
-      "caption": "",
-      "explain": "중성 원자가 전자 1개를 잃으면 양이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 0
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 0
-        }
-      ]
-    },
-    {
-      "id": "ion-K-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-K",
-      "prompt": "중성 원자가 전자를 몇 개 잃었을까?",
-      "formula": "K^+",
-      "caption": "",
-      "explain": "전하 +1은 전자 1개를 잃었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "1"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-K-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-K",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "K^+",
-      "caption": "양성자 19개",
-      "explain": "양성자 19개에서 잃은 전자 1개를 빼면 18개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "18"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
     },
     {
       "id": "ion-Ag-01",
@@ -7759,73 +7488,6 @@ window.QUIZ_BANK = {
       "answer": false
     },
     {
-      "id": "ion-Ag-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-Ag",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "Ag^+",
-      "caption": "",
-      "explain": "중성 원자가 전자 1개를 잃으면 양이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 0
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 0
-        }
-      ]
-    },
-    {
-      "id": "ion-Ag-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-Ag",
-      "prompt": "중성 원자가 전자를 몇 개 잃었을까?",
-      "formula": "Ag^+",
-      "caption": "",
-      "explain": "전하 +1은 전자 1개를 잃었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "1"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-Mg2-01",
-      "type": "text",
-      "topic": "이온 이름",
-      "key": "ion-Mg2",
-      "prompt": "이 이온의 이름은?",
-      "formula": "Mg^2+",
-      "caption": "",
-      "explain": "{{Mg^2+}}는 마그네슘 이온입니다. 양이온이며 전하의 크기는 2입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "마그네슘"
-      ],
-      "suffix": "이온",
-      "inputMode": "text"
-    },
-    {
       "id": "ion-Mg2-02",
       "type": "ox",
       "topic": "이온의 성질",
@@ -7852,73 +7514,6 @@ window.QUIZ_BANK = {
       "enabled": true,
       "scope": "2022 핵심",
       "answer": false
-    },
-    {
-      "id": "ion-Mg2-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-Mg2",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "Mg^2+",
-      "caption": "",
-      "explain": "중성 원자가 전자 2개를 잃으면 양이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 0
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 0
-        }
-      ]
-    },
-    {
-      "id": "ion-Mg2-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-Mg2",
-      "prompt": "중성 원자가 전자를 몇 개 잃었을까?",
-      "formula": "Mg^2+",
-      "caption": "",
-      "explain": "전하 +2은 전자 2개를 잃었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "2"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-Mg2-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-Mg2",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "Mg^2+",
-      "caption": "양성자 12개",
-      "explain": "양성자 12개에서 잃은 전자 2개를 빼면 10개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "10"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
     },
     {
       "id": "ion-Ca2-01",
@@ -7967,73 +7562,6 @@ window.QUIZ_BANK = {
       "answer": false
     },
     {
-      "id": "ion-Ca2-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-Ca2",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "Ca^2+",
-      "caption": "",
-      "explain": "중성 원자가 전자 2개를 잃으면 양이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 0
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 0
-        }
-      ]
-    },
-    {
-      "id": "ion-Ca2-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-Ca2",
-      "prompt": "중성 원자가 전자를 몇 개 잃었을까?",
-      "formula": "Ca^2+",
-      "caption": "",
-      "explain": "전하 +2은 전자 2개를 잃었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "2"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-Ca2-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-Ca2",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "Ca^2+",
-      "caption": "양성자 20개",
-      "explain": "양성자 20개에서 잃은 전자 2개를 빼면 18개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "18"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
       "id": "ion-Ba2-01",
       "type": "text",
       "topic": "이온 이름",
@@ -8078,55 +7606,6 @@ window.QUIZ_BANK = {
       "enabled": true,
       "scope": "2022 핵심",
       "answer": false
-    },
-    {
-      "id": "ion-Ba2-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-Ba2",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "Ba^2+",
-      "caption": "",
-      "explain": "중성 원자가 전자 2개를 잃으면 양이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 0
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 0
-        }
-      ]
-    },
-    {
-      "id": "ion-Ba2-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-Ba2",
-      "prompt": "중성 원자가 전자를 몇 개 잃었을까?",
-      "formula": "Ba^2+",
-      "caption": "",
-      "explain": "전하 +2은 전자 2개를 잃었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "2"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
     },
     {
       "id": "ion-Zn2-01",
@@ -8175,73 +7654,6 @@ window.QUIZ_BANK = {
       "answer": false
     },
     {
-      "id": "ion-Zn2-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-Zn2",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "Zn^2+",
-      "caption": "",
-      "explain": "중성 원자가 전자 2개를 잃으면 양이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 0
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 0
-        }
-      ]
-    },
-    {
-      "id": "ion-Zn2-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-Zn2",
-      "prompt": "중성 원자가 전자를 몇 개 잃었을까?",
-      "formula": "Zn^2+",
-      "caption": "",
-      "explain": "전하 +2은 전자 2개를 잃었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "2"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-Zn2-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-Zn2",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "Zn^2+",
-      "caption": "양성자 30개",
-      "explain": "양성자 30개에서 잃은 전자 2개를 빼면 28개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "28"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
       "id": "ion-Cu2-01",
       "type": "text",
       "topic": "이온 이름",
@@ -8254,8 +7666,8 @@ window.QUIZ_BANK = {
       "enabled": true,
       "scope": "2022 핵심",
       "answer": [
-        "구리(Ⅱ)",
         "구리",
+        "구리(Ⅱ)",
         "구리(II)",
         "구리2",
         "구리(2)",
@@ -8293,91 +7705,6 @@ window.QUIZ_BANK = {
       "answer": false
     },
     {
-      "id": "ion-Cu2-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-Cu2",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "Cu^2+",
-      "caption": "",
-      "explain": "중성 원자가 전자 2개를 잃으면 양이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 0
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 0
-        }
-      ]
-    },
-    {
-      "id": "ion-Cu2-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-Cu2",
-      "prompt": "중성 원자가 전자를 몇 개 잃었을까?",
-      "formula": "Cu^2+",
-      "caption": "",
-      "explain": "전하 +2은 전자 2개를 잃었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "2"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-Cu2-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-Cu2",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "Cu^2+",
-      "caption": "양성자 29개",
-      "explain": "양성자 29개에서 잃은 전자 2개를 빼면 27개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "27"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-Al3-01",
-      "type": "text",
-      "topic": "이온 이름",
-      "key": "ion-Al3",
-      "prompt": "이 이온의 이름은?",
-      "formula": "Al^3+",
-      "caption": "",
-      "explain": "{{Al^3+}}는 알루미늄 이온입니다. 양이온이며 전하의 크기는 3입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "알루미늄"
-      ],
-      "suffix": "이온",
-      "inputMode": "text"
-    },
-    {
       "id": "ion-Al3-02",
       "type": "ox",
       "topic": "이온의 성질",
@@ -8406,76 +7733,9 @@ window.QUIZ_BANK = {
       "answer": false
     },
     {
-      "id": "ion-Al3-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-Al3",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "Al^3+",
-      "caption": "",
-      "explain": "중성 원자가 전자 3개를 잃으면 양이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 0
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 0
-        }
-      ]
-    },
-    {
-      "id": "ion-Al3-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-Al3",
-      "prompt": "중성 원자가 전자를 몇 개 잃었을까?",
-      "formula": "Al^3+",
-      "caption": "",
-      "explain": "전하 +3은 전자 3개를 잃었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "3"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-Al3-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-Al3",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "Al^3+",
-      "caption": "양성자 13개",
-      "explain": "양성자 13개에서 잃은 전자 3개를 빼면 10개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "10"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
       "id": "ion-NH4-01",
       "type": "text",
-      "topic": "이온 이름",
+      "topic": "다원자 이온 이름",
       "key": "ion-NH4",
       "prompt": "이 이온의 이름은?",
       "formula": "NH4^+",
@@ -8551,26 +7811,6 @@ window.QUIZ_BANK = {
       "answer": true
     },
     {
-      "id": "ion-F-01",
-      "type": "text",
-      "topic": "이온 이름",
-      "key": "ion-F",
-      "prompt": "이 이온의 이름은?",
-      "formula": "F^-",
-      "caption": "",
-      "explain": "{{F^-}}는 플루오린화 이온입니다. 음이온이며 전하의 크기는 1입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "플루오린화",
-        "플루오르화",
-        "불화"
-      ],
-      "suffix": "이온",
-      "inputMode": "text"
-    },
-    {
       "id": "ion-F-02",
       "type": "ox",
       "topic": "이온의 성질",
@@ -8597,73 +7837,6 @@ window.QUIZ_BANK = {
       "enabled": true,
       "scope": "2022 핵심",
       "answer": true
-    },
-    {
-      "id": "ion-F-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-F",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "F^-",
-      "caption": "",
-      "explain": "중성 원자가 전자 1개를 얻으면 음이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 1
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 1
-        }
-      ]
-    },
-    {
-      "id": "ion-F-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-F",
-      "prompt": "중성 원자가 전자를 몇 개 얻었을까?",
-      "formula": "F^-",
-      "caption": "",
-      "explain": "전하 -1은 전자 1개를 얻었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "1"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-F-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-F",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "F^-",
-      "caption": "양성자 9개",
-      "explain": "양성자 9개에서 얻은 전자 1개를 더하면 10개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "10"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
     },
     {
       "id": "ion-Cl-01",
@@ -8712,92 +7885,6 @@ window.QUIZ_BANK = {
       "answer": true
     },
     {
-      "id": "ion-Cl-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-Cl",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "Cl^-",
-      "caption": "",
-      "explain": "중성 원자가 전자 1개를 얻으면 음이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 1
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 1
-        }
-      ]
-    },
-    {
-      "id": "ion-Cl-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-Cl",
-      "prompt": "중성 원자가 전자를 몇 개 얻었을까?",
-      "formula": "Cl^-",
-      "caption": "",
-      "explain": "전하 -1은 전자 1개를 얻었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "1"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-Cl-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-Cl",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "Cl^-",
-      "caption": "양성자 17개",
-      "explain": "양성자 17개에서 얻은 전자 1개를 더하면 18개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "18"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-Br-01",
-      "type": "text",
-      "topic": "이온 이름",
-      "key": "ion-Br",
-      "prompt": "이 이온의 이름은?",
-      "formula": "Br^-",
-      "caption": "",
-      "explain": "{{Br^-}}는 브로민화 이온입니다. 음이온이며 전하의 크기는 1입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "브로민화",
-        "브롬화"
-      ],
-      "suffix": "이온",
-      "inputMode": "text"
-    },
-    {
       "id": "ion-Br-02",
       "type": "ox",
       "topic": "이온의 성질",
@@ -8826,74 +7913,6 @@ window.QUIZ_BANK = {
       "answer": true
     },
     {
-      "id": "ion-Br-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-Br",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "Br^-",
-      "caption": "",
-      "explain": "중성 원자가 전자 1개를 얻으면 음이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 1
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 1
-        }
-      ]
-    },
-    {
-      "id": "ion-Br-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-Br",
-      "prompt": "중성 원자가 전자를 몇 개 얻었을까?",
-      "formula": "Br^-",
-      "caption": "",
-      "explain": "전하 -1은 전자 1개를 얻었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "1"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-I-01",
-      "type": "text",
-      "topic": "이온 이름",
-      "key": "ion-I",
-      "prompt": "이 이온의 이름은?",
-      "formula": "I^-",
-      "caption": "",
-      "explain": "{{I^-}}는 아이오딘화 이온입니다. 음이온이며 전하의 크기는 1입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "아이오딘화",
-        "요오드화"
-      ],
-      "suffix": "이온",
-      "inputMode": "text"
-    },
-    {
       "id": "ion-I-02",
       "type": "ox",
       "topic": "이온의 성질",
@@ -8920,55 +7939,6 @@ window.QUIZ_BANK = {
       "enabled": true,
       "scope": "2022 핵심",
       "answer": true
-    },
-    {
-      "id": "ion-I-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-I",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "I^-",
-      "caption": "",
-      "explain": "중성 원자가 전자 1개를 얻으면 음이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 1
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 1
-        }
-      ]
-    },
-    {
-      "id": "ion-I-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-I",
-      "prompt": "중성 원자가 전자를 몇 개 얻었을까?",
-      "formula": "I^-",
-      "caption": "",
-      "explain": "전하 -1은 전자 1개를 얻었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "1"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
     },
     {
       "id": "ion-O2-01",
@@ -9017,73 +7987,6 @@ window.QUIZ_BANK = {
       "answer": true
     },
     {
-      "id": "ion-O2-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-O2",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "O^2-",
-      "caption": "",
-      "explain": "중성 원자가 전자 2개를 얻으면 음이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 1
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 1
-        }
-      ]
-    },
-    {
-      "id": "ion-O2-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-O2",
-      "prompt": "중성 원자가 전자를 몇 개 얻었을까?",
-      "formula": "O^2-",
-      "caption": "",
-      "explain": "전하 -2은 전자 2개를 얻었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "2"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-O2-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-O2",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "O^2-",
-      "caption": "양성자 8개",
-      "explain": "양성자 8개에서 얻은 전자 2개를 더하면 10개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "10"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
       "id": "ion-S2-01",
       "type": "text",
       "topic": "이온 이름",
@@ -9130,76 +8033,9 @@ window.QUIZ_BANK = {
       "answer": true
     },
     {
-      "id": "ion-S2-04",
-      "type": "pick2",
-      "topic": "이온의 생성",
-      "key": "ion-S2",
-      "prompt": "중성 원자가 이 이온이 되면?",
-      "formula": "S^2-",
-      "caption": "",
-      "explain": "중성 원자가 전자 2개를 얻으면 음이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "groups": [
-        {
-          "label": "이온의 종류",
-          "options": [
-            "양이온",
-            "음이온"
-          ],
-          "correct": 1
-        },
-        {
-          "label": "전자 변화",
-          "options": [
-            "전자를 잃음",
-            "전자를 얻음"
-          ],
-          "correct": 1
-        }
-      ]
-    },
-    {
-      "id": "ion-S2-05",
-      "type": "text",
-      "topic": "이온의 생성",
-      "key": "ion-S2",
-      "prompt": "중성 원자가 전자를 몇 개 얻었을까?",
-      "formula": "S^2-",
-      "caption": "",
-      "explain": "전하 -2은 전자 2개를 얻었다는 뜻입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "2"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
-      "id": "ion-S2-06",
-      "type": "text",
-      "topic": "이온의 전자 수",
-      "key": "ion-S2",
-      "prompt": "이 이온의 전자는 몇 개?",
-      "formula": "S^2-",
-      "caption": "양성자 16개",
-      "explain": "양성자 16개에서 얻은 전자 2개를 더하면 18개입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "18"
-      ],
-      "suffix": "개",
-      "inputMode": "numeric"
-    },
-    {
       "id": "ion-OH-01",
       "type": "text",
-      "topic": "이온 이름",
+      "topic": "다원자 이온 이름",
       "key": "ion-OH",
       "prompt": "이 이온의 이름은?",
       "formula": "OH^-",
@@ -9277,7 +8113,7 @@ window.QUIZ_BANK = {
     {
       "id": "ion-NO3-01",
       "type": "text",
-      "topic": "이온 이름",
+      "topic": "다원자 이온 이름",
       "key": "ion-NO3",
       "prompt": "이 이온의 이름은?",
       "formula": "NO3^-",
@@ -9355,7 +8191,7 @@ window.QUIZ_BANK = {
     {
       "id": "ion-SO42-01",
       "type": "text",
-      "topic": "이온 이름",
+      "topic": "다원자 이온 이름",
       "key": "ion-SO42",
       "prompt": "이 이온의 이름은?",
       "formula": "SO4^2-",
@@ -9433,7 +8269,7 @@ window.QUIZ_BANK = {
     {
       "id": "ion-CO32-01",
       "type": "text",
-      "topic": "이온 이름",
+      "topic": "다원자 이온 이름",
       "key": "ion-CO32",
       "prompt": "이 이온의 이름은?",
       "formula": "CO3^2-",
@@ -9859,20 +8695,6 @@ window.QUIZ_BANK = {
       "answer": true
     },
     {
-      "id": "ion-element-01",
-      "type": "ox",
-      "topic": "원자의 구조",
-      "key": "ion-element",
-      "prompt": "전자를 잃으면 다른 원소가 된다.",
-      "formula": "",
-      "caption": "",
-      "explain": "전자를 잃어도 양성자 수는 같으므로 원소의 종류는 바뀌지 않습니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": false
-    },
-    {
       "id": "nucleus-mass-01",
       "type": "ox",
       "topic": "원자의 구조",
@@ -9899,90 +8721,6 @@ window.QUIZ_BANK = {
       "enabled": true,
       "scope": "2022 핵심",
       "answer": true
-    },
-    {
-      "id": "cation-loss-01",
-      "type": "ox",
-      "topic": "이온의 생성",
-      "key": "cation-loss",
-      "prompt": "원자가 전자를 잃으면 양이온이 된다.",
-      "formula": "",
-      "caption": "",
-      "explain": "(-)전하를 띤 전자를 잃으면 전체적으로 (+)전하를 띱니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": true
-    },
-    {
-      "id": "anion-gain-01",
-      "type": "ox",
-      "topic": "이온의 생성",
-      "key": "anion-gain",
-      "prompt": "원자가 전자를 얻으면 음이온이 된다.",
-      "formula": "",
-      "caption": "",
-      "explain": "(-)전하를 띤 전자를 얻으면 전체적으로 (-)전하를 띱니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": true
-    },
-    {
-      "id": "cation-protons-01",
-      "type": "ox",
-      "topic": "이온의 생성",
-      "key": "cation-protons",
-      "prompt": "양이온은 양성자를 얻어서 만들어진다.",
-      "formula": "",
-      "caption": "",
-      "explain": "이 단원에서 이온은 전자를 잃거나 얻어서 생깁니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": false
-    },
-    {
-      "id": "ion-nucleus-01",
-      "type": "ox",
-      "topic": "이온의 생성",
-      "key": "ion-nucleus",
-      "prompt": "원자가 이온이 될 때 양성자 수가 변한다.",
-      "formula": "",
-      "caption": "",
-      "explain": "이온이 될 때 변하는 것은 전자 수이며, 양성자 수는 그대로입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": false
-    },
-    {
-      "id": "loss-two-01",
-      "type": "ox",
-      "topic": "이온의 생성",
-      "key": "loss-two",
-      "prompt": "전자 2개를 잃은 원자는 2+ 이온이다.",
-      "formula": "",
-      "caption": "",
-      "explain": "전자 2개를 잃으면 양전하가 2만큼 남습니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": true
-    },
-    {
-      "id": "gain-two-01",
-      "type": "ox",
-      "topic": "이온의 생성",
-      "key": "gain-two",
-      "prompt": "전자 2개를 얻은 원자는 2+ 이온이다.",
-      "formula": "",
-      "caption": "",
-      "explain": "전자 2개를 얻으면 2- 음이온이 됩니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": false
     },
     {
       "id": "ion-charge-01",
@@ -10695,660 +9433,6 @@ window.QUIZ_BANK = {
       "enabled": true,
       "scope": "2022 핵심",
       "answer": true
-    },
-    {
-      "id": "flame-Li-01",
-      "type": "text",
-      "topic": "불꽃 반응",
-      "key": "flame-Li",
-      "prompt": "이 금속 원소의 불꽃 반응 색은?",
-      "formula": "Li",
-      "caption": "리튬",
-      "explain": "리튬을 포함한 대표적인 시료의 불꽃 반응은 빨간색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "빨간색",
-        "빨강",
-        "붉은색",
-        "적색"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "flame-Li-02",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-Li",
-      "prompt": "불꽃 반응 색은 빨간색이다.",
-      "formula": "Li",
-      "caption": "리튬",
-      "explain": "리튬을 포함한 대표적인 시료의 불꽃 반응은 빨간색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "flame-Li-03",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-Li",
-      "prompt": "불꽃 반응 색은 노란색이다.",
-      "formula": "Li",
-      "caption": "리튬",
-      "explain": "리튬을 포함한 대표적인 시료의 불꽃 반응은 빨간색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": false
-    },
-    {
-      "id": "flame-Na-01",
-      "type": "text",
-      "topic": "불꽃 반응",
-      "key": "flame-Na",
-      "prompt": "이 금속 원소의 불꽃 반응 색은?",
-      "formula": "Na",
-      "caption": "나트륨",
-      "explain": "나트륨을 포함한 대표적인 시료의 불꽃 반응은 노란색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "노란색",
-        "노랑",
-        "황색"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "flame-Na-02",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-Na",
-      "prompt": "불꽃 반응 색은 노란색이다.",
-      "formula": "Na",
-      "caption": "나트륨",
-      "explain": "나트륨을 포함한 대표적인 시료의 불꽃 반응은 노란색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "flame-Na-03",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-Na",
-      "prompt": "불꽃 반응 색은 보라색이다.",
-      "formula": "Na",
-      "caption": "나트륨",
-      "explain": "나트륨을 포함한 대표적인 시료의 불꽃 반응은 노란색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": false
-    },
-    {
-      "id": "flame-K-01",
-      "type": "text",
-      "topic": "불꽃 반응",
-      "key": "flame-K",
-      "prompt": "이 금속 원소의 불꽃 반응 색은?",
-      "formula": "K",
-      "caption": "칼륨",
-      "explain": "칼륨을 포함한 대표적인 시료의 불꽃 반응은 보라색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "보라색",
-        "보라",
-        "자색"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "flame-K-02",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-K",
-      "prompt": "불꽃 반응 색은 보라색이다.",
-      "formula": "K",
-      "caption": "칼륨",
-      "explain": "칼륨을 포함한 대표적인 시료의 불꽃 반응은 보라색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "flame-K-03",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-K",
-      "prompt": "불꽃 반응 색은 주황색이다.",
-      "formula": "K",
-      "caption": "칼륨",
-      "explain": "칼륨을 포함한 대표적인 시료의 불꽃 반응은 보라색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": false
-    },
-    {
-      "id": "flame-Ca-01",
-      "type": "text",
-      "topic": "불꽃 반응",
-      "key": "flame-Ca",
-      "prompt": "이 금속 원소의 불꽃 반응 색은?",
-      "formula": "Ca",
-      "caption": "칼슘",
-      "explain": "칼슘을 포함한 대표적인 시료의 불꽃 반응은 주황색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "주황색",
-        "주황",
-        "주황빨강",
-        "주황빨간색",
-        "벽돌색"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "flame-Ca-02",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-Ca",
-      "prompt": "불꽃 반응 색은 주황색이다.",
-      "formula": "Ca",
-      "caption": "칼슘",
-      "explain": "칼슘을 포함한 대표적인 시료의 불꽃 반응은 주황색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "flame-Ca-03",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-Ca",
-      "prompt": "불꽃 반응 색은 황록색이다.",
-      "formula": "Ca",
-      "caption": "칼슘",
-      "explain": "칼슘을 포함한 대표적인 시료의 불꽃 반응은 주황색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": false
-    },
-    {
-      "id": "flame-Ba-01",
-      "type": "text",
-      "topic": "불꽃 반응",
-      "key": "flame-Ba",
-      "prompt": "이 금속 원소의 불꽃 반응 색은?",
-      "formula": "Ba",
-      "caption": "바륨",
-      "explain": "바륨을 포함한 대표적인 시료의 불꽃 반응은 황록색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "황록색",
-        "연두색",
-        "연두",
-        "노란초록색"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "flame-Ba-02",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-Ba",
-      "prompt": "불꽃 반응 색은 황록색이다.",
-      "formula": "Ba",
-      "caption": "바륨",
-      "explain": "바륨을 포함한 대표적인 시료의 불꽃 반응은 황록색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "flame-Ba-03",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-Ba",
-      "prompt": "불꽃 반응 색은 청록색이다.",
-      "formula": "Ba",
-      "caption": "바륨",
-      "explain": "바륨을 포함한 대표적인 시료의 불꽃 반응은 황록색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": false
-    },
-    {
-      "id": "flame-Cu-01",
-      "type": "text",
-      "topic": "불꽃 반응",
-      "key": "flame-Cu",
-      "prompt": "이 금속 원소의 불꽃 반응 색은?",
-      "formula": "Cu",
-      "caption": "구리",
-      "explain": "구리을 포함한 대표적인 시료의 불꽃 반응은 청록색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "청록색",
-        "청록",
-        "파란초록색",
-        "녹청색"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "flame-Cu-02",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-Cu",
-      "prompt": "불꽃 반응 색은 청록색이다.",
-      "formula": "Cu",
-      "caption": "구리",
-      "explain": "구리을 포함한 대표적인 시료의 불꽃 반응은 청록색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "flame-Cu-03",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-Cu",
-      "prompt": "불꽃 반응 색은 빨간색이다.",
-      "formula": "Cu",
-      "caption": "구리",
-      "explain": "구리을 포함한 대표적인 시료의 불꽃 반응은 청록색으로 구분합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": false
-    },
-    {
-      "id": "flame-same-metal-01",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-same-metal",
-      "prompt": "{{NaCl}}과 {{NaNO3}}는 같은 불꽃 반응 색을 보인다.",
-      "formula": "",
-      "caption": "",
-      "explain": "둘 다 나트륨을 포함하여 대표적으로 노란색을 나타냅니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "flame-anion-01",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-anion",
-      "prompt": "불꽃 반응 색은 주로 음이온을 구별하는 데 쓴다.",
-      "formula": "",
-      "caption": "",
-      "explain": "이 단원에서 불꽃 반응은 주로 금속 원소를 구별하는 데 활용합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": false
-    },
-    {
-      "id": "flame-all-01",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "flame-all",
-      "prompt": "모든 원소가 뚜렷한 불꽃 반응 색을 보인다.",
-      "formula": "",
-      "caption": "",
-      "explain": "모든 원소에 뚜렷한 특유의 불꽃색이 나타나는 것은 아닙니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": false
-    },
-    {
-      "id": "spectrum-same-01",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "spectrum-same",
-      "prompt": "같은 원소는 같은 선 스펙트럼을 나타낸다.",
-      "formula": "",
-      "caption": "",
-      "explain": "같은 원소는 같은 위치의 선을 나타내므로 원소를 구별할 수 있습니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "spectrum-different-01",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "spectrum-different",
-      "prompt": "원소에 따라 선 스펙트럼의 위치가 다르다.",
-      "formula": "",
-      "caption": "",
-      "explain": "원소마다 고유한 선 스펙트럼이 있습니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "spectrum-similar-flame-01",
-      "type": "ox",
-      "topic": "불꽃 반응",
-      "key": "spectrum-similar-flame",
-      "prompt": "불꽃색이 비슷해도 선 스펙트럼으로 구별할 수 있다.",
-      "formula": "",
-      "caption": "",
-      "explain": "선의 위치를 비교하여 원소를 구별할 수 있습니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "precip-AgCl-01",
-      "type": "text",
-      "topic": "앙금 생성",
-      "key": "precip-AgCl",
-      "prompt": "이 앙금의 색은?",
-      "formula": "AgCl",
-      "caption": "염화 은",
-      "explain": "염화 은은 대표적인 흰색 앙금입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "흰색",
-        "흰",
-        "하얀색",
-        "백색",
-        "하양",
-        "하얀"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "precip-AgCl-02",
-      "type": "ox",
-      "topic": "앙금 생성",
-      "key": "precip-AgCl",
-      "prompt": "흰색 앙금이 생긴다.",
-      "formula": "Ag^+ + Cl^-",
-      "caption": "두 이온이 수용액에서 만날 때",
-      "explain": "{{Ag^+}}와 {{Cl^-}}가 만나면 염화 은({{AgCl}}) 앙금이 생깁니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "precip-AgCl-03",
-      "type": "text",
-      "topic": "앙금 생성",
-      "key": "precip-AgCl",
-      "prompt": "생기는 앙금의 이름은?",
-      "formula": "Ag^+ + Cl^-",
-      "caption": "수용액에서 두 이온이 만남",
-      "explain": "두 이온은 염화 은({{AgCl}})이라는 물에 잘 녹지 않는 앙금을 만듭니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "염화 은"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "precip-BaSO4-01",
-      "type": "text",
-      "topic": "앙금 생성",
-      "key": "precip-BaSO4",
-      "prompt": "이 앙금의 색은?",
-      "formula": "BaSO4",
-      "caption": "황산 바륨",
-      "explain": "황산 바륨은 대표적인 흰색 앙금입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "흰색",
-        "흰",
-        "하얀색",
-        "백색",
-        "하양",
-        "하얀"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "precip-BaSO4-02",
-      "type": "ox",
-      "topic": "앙금 생성",
-      "key": "precip-BaSO4",
-      "prompt": "흰색 앙금이 생긴다.",
-      "formula": "Ba^2+ + SO4^2-",
-      "caption": "두 이온이 수용액에서 만날 때",
-      "explain": "{{Ba^2+}}와 {{SO4^2-}}가 만나면 황산 바륨({{BaSO4}}) 앙금이 생깁니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "precip-BaSO4-03",
-      "type": "text",
-      "topic": "앙금 생성",
-      "key": "precip-BaSO4",
-      "prompt": "생기는 앙금의 이름은?",
-      "formula": "Ba^2+ + SO4^2-",
-      "caption": "수용액에서 두 이온이 만남",
-      "explain": "두 이온은 황산 바륨({{BaSO4}})이라는 물에 잘 녹지 않는 앙금을 만듭니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "황산 바륨"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "precip-CaCO3-01",
-      "type": "text",
-      "topic": "앙금 생성",
-      "key": "precip-CaCO3",
-      "prompt": "이 앙금의 색은?",
-      "formula": "CaCO3",
-      "caption": "탄산 칼슘",
-      "explain": "탄산 칼슘은 대표적인 흰색 앙금입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "흰색",
-        "흰",
-        "하얀색",
-        "백색",
-        "하양",
-        "하얀"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "precip-CaCO3-02",
-      "type": "ox",
-      "topic": "앙금 생성",
-      "key": "precip-CaCO3",
-      "prompt": "흰색 앙금이 생긴다.",
-      "formula": "Ca^2+ + CO3^2-",
-      "caption": "두 이온이 수용액에서 만날 때",
-      "explain": "{{Ca^2+}}와 {{CO3^2-}}가 만나면 탄산 칼슘({{CaCO3}}) 앙금이 생깁니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "precip-CaCO3-03",
-      "type": "text",
-      "topic": "앙금 생성",
-      "key": "precip-CaCO3",
-      "prompt": "생기는 앙금의 이름은?",
-      "formula": "Ca^2+ + CO3^2-",
-      "caption": "수용액에서 두 이온이 만남",
-      "explain": "두 이온은 탄산 칼슘({{CaCO3}})이라는 물에 잘 녹지 않는 앙금을 만듭니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "탄산 칼슘"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "precip-PbI2-01",
-      "type": "text",
-      "topic": "앙금 생성",
-      "key": "precip-PbI2",
-      "prompt": "이 앙금의 색은?",
-      "formula": "PbI2",
-      "caption": "아이오딘화 납",
-      "explain": "아이오딘화 납은 대표적인 노란색 앙금입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "노란색",
-        "노랑",
-        "황색",
-        "노란"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "precip-PbI2-02",
-      "type": "ox",
-      "topic": "앙금 생성",
-      "key": "precip-PbI2",
-      "prompt": "노란색 앙금이 생긴다.",
-      "formula": "Pb^2+ + I^-",
-      "caption": "두 이온이 수용액에서 만날 때",
-      "explain": "{{Pb^2+}}와 {{I^-}}가 만나면 아이오딘화 납({{PbI2}}) 앙금이 생깁니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "precip-PbI2-03",
-      "type": "text",
-      "topic": "앙금 생성",
-      "key": "precip-PbI2",
-      "prompt": "생기는 앙금의 이름은?",
-      "formula": "Pb^2+ + I^-",
-      "caption": "수용액에서 두 이온이 만남",
-      "explain": "두 이온은 아이오딘화 납({{PbI2}})이라는 물에 잘 녹지 않는 앙금을 만듭니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": [
-        "아이오딘화 납",
-        "요오드화 납",
-        "아이오딘화 납(Ⅱ)",
-        "아이오딘화 납(II)"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
-      "id": "precip-insoluble-01",
-      "type": "ox",
-      "topic": "앙금 생성",
-      "key": "precip-insoluble",
-      "prompt": "앙금은 물에 잘 녹지 않는 물질이다.",
-      "formula": "",
-      "caption": "",
-      "explain": "수용액 속 이온들이 만나 물에 잘 녹지 않는 물질이 생성되면 앙금이 생깁니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": true
-    },
-    {
-      "id": "precip-all-01",
-      "type": "ox",
-      "topic": "앙금 생성",
-      "key": "precip-all",
-      "prompt": "두 수용액을 섞으면 언제나 앙금이 생긴다.",
-      "formula": "",
-      "caption": "",
-      "explain": "물에 잘 녹지 않는 물질을 생성하는 이온 조합이 있어야 합니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": false
-    },
-    {
-      "id": "precip-cation-01",
-      "type": "ox",
-      "topic": "앙금 생성",
-      "key": "precip-cation",
-      "prompt": "앙금은 양이온끼리만 결합해서 만들어진다.",
-      "formula": "",
-      "caption": "",
-      "explain": "이 단원에서 다루는 앙금은 양이온과 음이온이 만나 만들어집니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": false
-    },
-    {
-      "id": "precip-nacl-01",
-      "type": "ox",
-      "topic": "앙금 생성",
-      "key": "precip-nacl",
-      "prompt": "{{Na^+}}와 {{Cl^-}}가 수용액에서 만나면 흰 앙금이 생긴다.",
-      "formula": "",
-      "caption": "",
-      "explain": "염화 나트륨은 물에 잘 녹으므로 이 조건에서는 앙금으로 분리되지 않습니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "연결·보충",
-      "answer": false
     },
     {
       "id": "electro-salt-01",
@@ -12255,24 +10339,6 @@ window.QUIZ_BANK = {
       "inputMode": "text"
     },
     {
-      "id": "concept-electron-01",
-      "type": "text",
-      "topic": "핵심 용어",
-      "key": "concept-electron",
-      "prompt": "이온이 될 때 잃거나 얻는 입자는?",
-      "formula": "",
-      "caption": "",
-      "explain": "정답은 전자입니다.",
-      "clue": "",
-      "enabled": true,
-      "scope": "2022 핵심",
-      "answer": [
-        "전자"
-      ],
-      "suffix": "",
-      "inputMode": "text"
-    },
-    {
       "id": "concept-neutron-01",
       "type": "text",
       "topic": "핵심 용어",
@@ -12343,6 +10409,301 @@ window.QUIZ_BANK = {
       ],
       "suffix": "",
       "inputMode": "text"
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-NH4",
+      "formula": "NH4^+",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-NH4-name-1",
+      "type": "ox",
+      "prompt": "암모늄 이온이다.",
+      "answer": true,
+      "explain": "{{NH4^+}}는 암모늄 이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-NH4",
+      "formula": "NH4^+",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-NH4-name-0",
+      "type": "ox",
+      "prompt": "질산 이온이다.",
+      "answer": false,
+      "explain": "{{NH4^+}}는 암모늄 이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-NH4",
+      "formula": "NH4^+",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-NH4-name-pick",
+      "type": "pick2",
+      "prompt": "이름과 종류를 고르세요.",
+      "groups": [
+        {
+          "label": "이온 이름",
+          "options": [
+            "암모늄 이온",
+            "질산 이온"
+          ],
+          "correct": 0
+        },
+        {
+          "label": "이온 종류",
+          "options": [
+            "양이온",
+            "음이온"
+          ],
+          "correct": 0
+        }
+      ],
+      "explain": "{{NH4^+}}는 암모늄 이온이며 양이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-OH",
+      "formula": "OH^-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-OH-name-1",
+      "type": "ox",
+      "prompt": "수산화 이온이다.",
+      "answer": true,
+      "explain": "{{OH^-}}는 수산화 이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-OH",
+      "formula": "OH^-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-OH-name-0",
+      "type": "ox",
+      "prompt": "탄산 이온이다.",
+      "answer": false,
+      "explain": "{{OH^-}}는 수산화 이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-OH",
+      "formula": "OH^-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-OH-name-pick",
+      "type": "pick2",
+      "prompt": "이름과 종류를 고르세요.",
+      "groups": [
+        {
+          "label": "이온 이름",
+          "options": [
+            "수산화 이온",
+            "탄산 이온"
+          ],
+          "correct": 0
+        },
+        {
+          "label": "이온 종류",
+          "options": [
+            "양이온",
+            "음이온"
+          ],
+          "correct": 1
+        }
+      ],
+      "explain": "{{OH^-}}는 수산화 이온이며 음이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-NO3",
+      "formula": "NO3^-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-NO3-name-1",
+      "type": "ox",
+      "prompt": "질산 이온이다.",
+      "answer": true,
+      "explain": "{{NO3^-}}는 질산 이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-NO3",
+      "formula": "NO3^-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-NO3-name-0",
+      "type": "ox",
+      "prompt": "황산 이온이다.",
+      "answer": false,
+      "explain": "{{NO3^-}}는 질산 이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-NO3",
+      "formula": "NO3^-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-NO3-name-pick",
+      "type": "pick2",
+      "prompt": "이름과 종류를 고르세요.",
+      "groups": [
+        {
+          "label": "이온 이름",
+          "options": [
+            "질산 이온",
+            "황산 이온"
+          ],
+          "correct": 0
+        },
+        {
+          "label": "이온 종류",
+          "options": [
+            "양이온",
+            "음이온"
+          ],
+          "correct": 1
+        }
+      ],
+      "explain": "{{NO3^-}}는 질산 이온이며 음이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-SO42",
+      "formula": "SO4^2-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-SO42-name-1",
+      "type": "ox",
+      "prompt": "황산 이온이다.",
+      "answer": true,
+      "explain": "{{SO4^2-}}는 황산 이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-SO42",
+      "formula": "SO4^2-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-SO42-name-0",
+      "type": "ox",
+      "prompt": "질산 이온이다.",
+      "answer": false,
+      "explain": "{{SO4^2-}}는 황산 이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-SO42",
+      "formula": "SO4^2-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-SO42-name-pick",
+      "type": "pick2",
+      "prompt": "이름과 종류를 고르세요.",
+      "groups": [
+        {
+          "label": "이온 이름",
+          "options": [
+            "황산 이온",
+            "질산 이온"
+          ],
+          "correct": 0
+        },
+        {
+          "label": "이온 종류",
+          "options": [
+            "양이온",
+            "음이온"
+          ],
+          "correct": 1
+        }
+      ],
+      "explain": "{{SO4^2-}}는 황산 이온이며 음이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-CO32",
+      "formula": "CO3^2-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-CO32-name-1",
+      "type": "ox",
+      "prompt": "탄산 이온이다.",
+      "answer": true,
+      "explain": "{{CO3^2-}}는 탄산 이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-CO32",
+      "formula": "CO3^2-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-CO32-name-0",
+      "type": "ox",
+      "prompt": "수산화 이온이다.",
+      "answer": false,
+      "explain": "{{CO3^2-}}는 탄산 이온입니다."
+    },
+    {
+      "topic": "다원자 이온 이름",
+      "key": "ion-CO32",
+      "formula": "CO3^2-",
+      "caption": "",
+      "clue": "",
+      "enabled": true,
+      "scope": "이온 이름 집중",
+      "id": "ion-CO32-name-pick",
+      "type": "pick2",
+      "prompt": "이름과 종류를 고르세요.",
+      "groups": [
+        {
+          "label": "이온 이름",
+          "options": [
+            "탄산 이온",
+            "수산화 이온"
+          ],
+          "correct": 0
+        },
+        {
+          "label": "이온 종류",
+          "options": [
+            "양이온",
+            "음이온"
+          ],
+          "correct": 1
+        }
+      ],
+      "explain": "{{CO3^2-}}는 탄산 이온이며 음이온입니다."
     }
   ]
 };

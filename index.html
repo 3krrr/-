@@ -2,22 +2,25 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
 <meta name="theme-color" content="#090c15">
 <meta name="description" content="3초의 판단. 끊기지 않는 도전. 미래탐구 오랑우탄 물질의 구성 챌린지.">
 <title>미래탐구 오랑우탄</title>
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="mobile.css">
 <script defer src="config.js"></script>
 <script defer src="questions.js"></script>
 <script defer src="core.js"></script>
+<script defer src="ranking.js"></script>
+<script defer src="viewport.js"></script>
 <script defer src="game.js"></script>
 </head>
-<body>
+<body data-phase="home">
 <div class="ambient" aria-hidden="true"><div class="glow glow-a"></div><div class="glow glow-b"></div><div class="grid-floor"></div><div class="orbital orbital-a"></div><div class="orbital orbital-b"></div></div>
 <div class="app" id="app">
 <header class="topbar">
-  <a class="brand" href="#" id="home-link" aria-label="첫 화면"><span class="brand-symbol" aria-hidden="true">M<span>+</span></span><span>미래탐구<span class="brand-sub">SCIENCE ARCADE</span></span></a>
+  <a class="brand" href="#" id="home-link" aria-label="첫 화면"><span class="brand-symbol" aria-hidden="true">M<span>+</span></span><span>미래탐구<span class="brand-sub">김경근의 기묘한 여행</span></span></a>
   <div class="tools"><button class="icon-btn" id="motion-toggle" type="button" aria-label="화면 효과 끄기" title="화면 효과">FX</button><button class="icon-btn" id="sound-toggle" type="button" aria-label="소리 끄기" title="소리">♪</button></div>
 </header>
 <main>
@@ -26,8 +29,8 @@
   <div class="hero-copy">
     <div class="eyebrow"><span class="live-dot"></span> 중2 과학 · 물질의 구성</div>
     <h1 aria-label="미래탐구 오랑우탄"><span class="title-small">미래탐구</span><span class="title-main" data-text="오랑우탄">오랑우탄</span><span class="title-outline" aria-hidden="true">ORANGUTAN</span></h1>
-    <p class="hero-line">3초의 판단.<br><strong>끊기지 않는 도전.</strong></p>
-    <p class="hero-desc">한 번 틀리면 끝.<br>너의 과학 감각은 어디까지?</p>
+    <p class="hero-line">매우 짧은 시간<br><strong>진정한 오랑우탄을 선별한다.</strong></p>
+    <p class="hero-desc">최고 존엄 오랑우탄,<br>다음은 당신의 자리입니다.</p>
   </div>
   <div class="launch-panel">
     <div class="panel-heading"><span class="micro">READY TO CHALLENGE</span><span id="mode-badge" class="status-chip">연속 정답 챌린지</span></div>
@@ -40,7 +43,7 @@
     <div class="rules-grid"><div><b>O / X</b><span>즉시 판단</span><strong>3<small>초</small></strong></div><div><b>4개 중 2개</b><span>각 줄에서 하나씩</span><strong>4<small>초</small></strong></div><div><b>직접 입력</b><span>짧게 답하기</span><strong>7<small>초</small></strong></div></div>
     <div class="start-foot"><span>정답 +1 · 오답 / 시간 초과 시 종료</span><button id="show-rules" class="text-btn" type="button">게임 방법 <span>↗</span></button></div>
   </div>
-  <div class="home-bottom"><span class="barcode" aria-hidden="true"></span><span>THINK FAST. KEEP GOING.</span><span>MATTER / 02</span></div>
+  <div class="home-bottom"><span class="barcode" aria-hidden="true"></span><span>멈출수 없는 오랑우탄의 유혹이 시작된다.</span><span>MATTER / 02</span></div>
 </section>
 <section id="play-screen" class="screen play-screen" hidden>
   <div class="game-hud"><div class="player-info"><span class="micro">CHALLENGER</span><strong id="playing-name"></strong></div><div class="combo-box"><span>연속 정답</span><strong id="combo">0</strong><small>COMBO</small></div></div>
@@ -57,9 +60,21 @@
   <div class="play-bottom"><span id="encouragement">멈추지 말고, 다음 정답.</span><span class="small-cross" aria-hidden="true">✳</span></div>
 </section>
 <section id="result-screen" class="screen result-screen" hidden>
-  <div class="result-heading"><span class="eyebrow" id="end-label">CHALLENGE COMPLETE</span><h2>이번 도전의 기록</h2><div class="final-score"><span id="final-score">0</span><strong>연속 정답<small id="final-player"></small></strong></div><p id="best-notice"></p></div>
-  <div class="result-columns"><div class="result-left"><div class="review-card"><div class="review-head"><span>마지막 문제</span><span id="end-reason" class="end-reason">오답</span></div><div id="review-question"></div><div class="correct-label">정답 <strong id="correct-answer"></strong></div><p id="review-explain"></p></div><button type="button" id="replay" class="primary-btn">다시 도전 <span>↗</span></button><button type="button" id="change-name" class="secondary-btn">이름 바꾸기</button></div>
-  <section class="ranking-card" aria-label="랭킹"><div class="ranking-heading"><div><span class="micro">HALL OF FAME</span><h3 id="ranking-title">TOP 10</h3></div><span class="ranking-star" aria-hidden="true">✳</span></div><div class="ranking-status"><span id="save-status" aria-live="polite"></span><button type="button" id="retry-save" class="text-btn" hidden>다시 확인 ↻</button></div><ol id="rank-list" class="rank-list"></ol><p class="ranking-note" id="ranking-note">이름별 최고 기록 · 동점은 먼저 달성한 순서</p></section></div>
+  <div class="result-scroll" tabindex="0" aria-label="도전 결과와 랭킹">
+    <div class="result-heading">
+      <span class="eyebrow" id="end-label">CHALLENGE COMPLETE</span><h2>이번 도전의 기록</h2>
+      <div class="score-summary"><div class="final-score"><span id="final-score">0</span><strong>연속 정답<small id="final-player"></small></strong></div><span id="result-rank" class="result-rank"></span></div>
+      <p id="best-notice"></p>
+    </div>
+    <div class="result-columns">
+      <section class="ranking-card" aria-label="랭킹"><div class="ranking-heading"><div><span class="micro">HALL OF FAME</span><h3 id="ranking-title">TOP 10</h3></div><span class="ranking-star" aria-hidden="true">✳</span></div>
+        <div class="ranking-status"><span id="save-status" aria-live="polite"></span><button type="button" id="retry-save" class="text-btn" hidden>다시 확인 ↻</button></div>
+        <ol id="rank-list" class="rank-list"></ol><p class="ranking-note" id="ranking-note"></p>
+      </section>
+      <div class="result-left"><div class="review-card"><div class="review-head"><span>마지막 문제</span><span id="end-reason" class="end-reason">오답</span></div><div id="review-question"></div><div class="correct-label">정답 <strong id="correct-answer"></strong></div><p id="review-explain"></p></div></div>
+    </div>
+  </div>
+  <div class="result-actions"><button type="button" id="change-name" class="secondary-btn">이름 바꾸기</button><button type="button" id="replay" class="primary-btn">다시 도전 <span>↗</span></button></div>
 </section>
 </main>
 <footer class="footer"><span>미래탐구</span><span>지식이 반응하는 순간.</span></footer>

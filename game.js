@@ -1,4 +1,4 @@
-/* Local play engine. Only completed runs communicate with the ranking service. */
+/* Local game loop. Rankings preload asynchronously; results render before saving. */
 (function () {
   'use strict';
   const C = window.QuizCore, bank = window.QUIZ_BANK, config = window.QUIZ_CONFIG || {};
@@ -7,14 +7,14 @@
     get(key, fallback) { try { const v=localStorage.getItem('orangutan:'+key); return v===null?fallback:JSON.parse(v); } catch (_) {return fallback;} },
     set(key,value) { try {localStorage.setItem('orangutan:'+key,JSON.stringify(value));return true;} catch (_) {return false;} }
   };
-  const base = String(config.apiBase || '').trim().replace(/\/$/, '');
+  const R = window.OrangutanRanking;
   const touch = matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
   const labels={ox:'O / X',pick2:'4개 중 2개',text:'직접 입력'};
   let phase='home', sampler, current=null, score=0, player='', run=null, selections=[null,null];
   let startMono=0, startWall=0, raf=0, ticket=0, composing=false, lastTenth=-1, pointerSubmission=false;
   let sound=storage.get('sound',config.soundDefault!==false), motion=storage.get('motion',config.motionDefault!==false);
-  let audio=null, sending=false, resultRunId='', lastSnapshot=storage.get('ranking',[]), pending=storage.get('pending',[]);
-  if (!Array.isArray(pending)) pending=[];
+  let audio=null, resultRunId='';
+  const ranking = new R.RankingClient({url:config.appsScriptUrl || '', onChange:renderRanking});
   const timers=new Set();
   function later(fn,ms){const id=setTimeout(()=>{timers.delete(id);fn();},ms);timers.add(id);return id;}
   function clearTimers(){timers.forEach(clearTimeout);timers.clear();cancelAnimationFrame(raf);}
@@ -24,16 +24,15 @@
   }
   function unlockAudio(){try {audio ||= new(window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume().catch(()=>{});}catch(_){} }
   function preferences(){document.body.classList.toggle('no-motion',!motion);$('sound-toggle').setAttribute('aria-pressed',String(sound));$('sound-toggle').setAttribute('aria-label',sound?'소리 끄기':'소리 켜기');$('motion-toggle').setAttribute('aria-pressed',String(motion));$('motion-toggle').setAttribute('aria-label',motion?'화면 효과 끄기':'화면 효과 켜기');}
-  function screen(which){for(const name of ['home','play','result'])$(name+'-screen').hidden=name!==which;document.body.dataset.phase=which;}
+  function screen(which){for(const name of ['home','play','result'])$(name+'-screen').hidden=name!==which;document.body.dataset.phase=which;if(which==='result')document.querySelector('.result-scroll').scrollTop=0;}
   function setPhase(p){phase=p;}
-  function validName(value){return /^[\p{L}\p{N} _·.\-]{1,20}$/u.test(value) && /[\p{L}\p{N}]/u.test(value);}
+  function validName(value){return /^[\p{L}\p{N} _·.\-]{1,20}$/u.test(value) && /[\p{L}\p{N}]/u.test(value) && !/^[=+\-@]/.test(value);}
   function cleanName(value){return String(value).normalize('NFKC').trim().replace(/\s+/g,' ');}
   function newId(){return crypto.randomUUID ? crypto.randomUUID() : 'run-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,14);}
   function start(){
     if(!['home','result'].includes(phase))return;
     const name=cleanName($('player-name').value);
     if(!validName(name)){$('name-error').textContent='이름은 한글·영문·숫자를 포함해 20자 이내로 입력해 주세요.';$('player-name').focus();return;}
-    if(pending.length>=50 && base){$('name-error').textContent='아직 반영되지 않은 기록이 많아요. 연결을 확인한 뒤 다시 시도해 주세요.';flush();return;}
     $('name-error').textContent='';player=name;storage.set('player',name);$('player-name').blur();unlockAudio();
     clearTimers();ticket++;score=0;current=null;run={runId:newId(),name:player,version:bank.version,startedAt:new Date().toISOString(),entries:[]};
     $('playing-name').textContent=player;$('combo').textContent='0';$('feedback').hidden=true;
@@ -41,11 +40,10 @@
     const token=ticket, counts=['3','2','1','START'];let i=0;
     function step(){if(token!==ticket||phase!=='countdown')return;const n=counts[i];$('count-number').textContent=n;$('count-number').classList.toggle('start-word',n==='START');$('count-number').style.animation='none';void $('count-number').offsetWidth;$('count-number').style.animation='';beep(n==='START'?880:440,n==='START'?.15:.07);i++;if(i<4)later(step,700);else later(()=>{$('countdown').hidden=true;next();},450);}
     step();
-    // Warming a connection is optional; its completion never controls the countdown.
-    warm();
+    ranking.start(); // No await: the countdown is already on screen.
   }
   function next(){
-    clearTimers();const token=++ticket;setPhase('preparing');current=sampler.next();selections=[null,null];composing=false;
+    clearTimers();const token=++ticket;setPhase('preparing');current=sampler.next();document.body.dataset.qtype=current.type;selections=[null,null];composing=false;
     storage.set('sampling',sampler.state());
     $('feedback').hidden=true;$('type-label').textContent=labels[current.type];$('topic-label').textContent=current.topic;$('question-number').textContent=String(score+1).padStart(2,'0');
     $('q-caption').textContent=current.caption||'';$('q-formula').innerHTML=current.model?C.modelHTML(current.model):C.formula(current.formula||'');$('q-formula').hidden=!current.formula&&!current.model;
@@ -113,47 +111,39 @@
     const bests=storage.get('bests',{}),old=Number(bests[player]??-1);bests[player]=Math.max(old,score);storage.set('bests',bests);
     $('best-notice').textContent=score>old&&score>0?'이 기기에서의 내 최고 기록을 넘었어요.':score>0?'좋은 도전이었어요. 다음 기록을 만들어 봐요.':'다음 도전에서 첫 정답을 잡아 봐요.';
     beep(190,.16);window.scrollTo({top:0,behavior:'instant'});
-    if(base){
-      pending.push(JSON.parse(JSON.stringify(run)));storage.set('pending',pending);
-      showRanking(lastSnapshot);$('save-status').textContent='기록을 반영하고 있어요…';$('retry-save').hidden=true;$('ranking-note').textContent='이름별 최고 기록 · 동점은 먼저 달성한 순서';flush();
-    } else {
-      let local=storage.get('localRanking',[]);local.push({name:player,score,at:run.finishedAt});const map=new Map();
-      local.sort((a,b)=>b.score-a.score||String(a.at).localeCompare(String(b.at))).forEach(r=>{if(!map.has(r.name))map.set(r.name,r);});local=Array.from(map.values()).slice(0,100);storage.set('localRanking',local);showRanking(local.slice(0,10));$('save-status').textContent='개인 연습 기록';$('ranking-note').textContent='이 기기의 기록 · 이름별 최고 기록';$('retry-save').hidden=true;
-    }
+    ranking.enqueue(run,score);
+    renderRanking();
   }
   function showRanking(rows){
     const list=$('rank-list');list.replaceChildren();
     if(!Array.isArray(rows)||!rows.length){const li=document.createElement('li');li.className='ranking-empty';li.textContent='첫 번째 기록의 주인공이 되어 보세요.';list.append(li);return;}
     rows.slice(0,10).forEach((r,i)=>{const li=document.createElement('li');li.className='rank-item'+(i===0?' first':'')+(r.name===player?' mine':'');const rank=document.createElement('span');rank.className='rank-number';rank.textContent=String(i+1).padStart(2,'0');const name=document.createElement('span');name.className='rank-name';name.textContent=String(r.name||'');const s=document.createElement('strong');s.className='rank-score';s.textContent=String(Number(r.score)||0);li.append(rank,name,s);list.append(li);});
   }
-  async function request(path,options={}){
-    const ac=new AbortController(),id=setTimeout(()=>ac.abort(),85000);
-    try{const response=await fetch(base+path,{...options,mode:'cors',credentials:'omit',signal:ac.signal});let body;try{body=await response.json();}catch(_){throw new Error('temporary');}if(!response.ok||!body.ok)throw new Error(body.code||'temporary');return body;}finally{clearTimeout(id);}
+  function renderRanking(){
+    if(phase!=='result')return;
+    const view=ranking.view(), state=ranking.status(resultRunId);
+    if(view.hasSnapshot)showRanking(view.rows);
+    else {
+      const li=document.createElement('li');li.className='ranking-empty';
+      li.textContent='내 기록은 준비됐어요. 다른 기록을 확인하고 있어요.';$('rank-list').replaceChildren(li);
+    }
+    const index=view.rows.findIndex(row=>R.nameKey(row.name)===R.nameKey(player));
+    $('result-rank').textContent=!view.hasSnapshot?'내 기록 표시 완료':index>=0?`${index+1}위 · 이름별 최고 기록`:'TOP 10에 다시 도전!';
+    $('result-rank').classList.toggle('rank-highlight',index>=0);
+    $('ranking-note').textContent=view.practice?'이 기기의 기록 · 이름별 최고 기록':
+      state==='saved'?'확인된 순위 · 이름별 최고 기록':
+      view.hasSnapshot?'미리 불러온 순위 + 내 기록 · 확인 후 갱신':'기록을 확인하는 동안에도 다시 도전할 수 있어요.';
+    let message='기록 전달 중 · 바로 다시 도전해도 돼요';
+    if(view.practice)message='개인 연습 기록';
+    else if(state==='saved')message='기록 반영 완료';
+    else if(state==='rejected')message='이 기록은 반영하지 못했어요. 선생님께 알려 주세요.';
+    else if(view.configInvalid)message='기록 연결을 준비하고 있어요. 선생님께 알려 주세요.';
+    else if(view.memoryOnly)message='기록 확인까지 이 창을 유지해 주세요.';
+    else if(navigator.onLine===false)message='기록 보관 중 · 연결되면 자동 반영';
+    else if(ranking.failures>0)message='기록 보관 중 · 자동으로 다시 전달해요';
+    $('save-status').textContent=message;
+    $('retry-save').hidden=view.practice||state==='saved'||state==='rejected'||view.configInvalid||!(ranking.failures>0||navigator.onLine===false);
   }
-  async function flush(){
-    if(!base||sending||!pending.length)return;sending=true;
-    try{
-      while(pending.length){
-        const item=pending[0];
-        try{
-          const data=await request('/api/result',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(item)});
-          pending=pending.filter(r=>r.runId!==item.runId);storage.set('pending',pending);
-          lastSnapshot=Array.isArray(data.ranking)?data.ranking:[];storage.set('ranking',lastSnapshot);
-          if(phase==='result'){showRanking(lastSnapshot);if(resultRunId===item.runId){$('save-status').textContent='기록 반영 완료';$('retry-save').hidden=true;}}
-        }catch(err){
-          if(['bank_version','unknown_question','invalid_answer','invalid_entries','invalid_end','invalid_wrong','invalid_timeout','missing_failure'].includes(err.message)){
-            const rejected=storage.get('unconfirmed',[]);rejected.push(item);storage.set('unconfirmed',rejected.slice(-50));pending=pending.filter(r=>r.runId!==item.runId);storage.set('pending',pending);
-            if(phase==='result'&&resultRunId===item.runId){$('save-status').textContent='이 기록을 반영하지 못했어요. 새로고침 후 선생님께 알려 주세요.';$('retry-save').hidden=true;}
-            continue;
-          }
-          if(phase==='result'){$('save-status').textContent=err.message==='bank_version'?'문제가 새로 바뀌었어요. 새로고침 후 다시 도전해 주세요.':'아직 반영되지 않았어요. 연결 후 다시 확인해 주세요.';$('retry-save').hidden=false;}
-          break;
-        }
-      }
-    }finally{sending=false;}
-  }
-  let lastWarm=0;
-  function warm(){if(!base||Date.now()-lastWarm<45000)return;lastWarm=Date.now();const ac=new AbortController();const id=setTimeout(()=>ac.abort(),12000);fetch(base+'/api/health',{signal:ac.signal,credentials:'omit'}).catch(()=>{}).finally(()=>clearTimeout(id));}
   function goHome(){
     if(['playing','preparing','feedback'].includes(phase)){finish(null,'left');return;}
     clearTimers();ticket++;setPhase('home');$('countdown').hidden=true;screen('home');$('player-name').value=player||storage.get('player','');window.scrollTo({top:0,behavior:'instant'});
@@ -171,14 +161,16 @@
   $('answer-input').addEventListener('focus',()=>{if(touch)document.body.classList.add('keyboard-open');});$('answer-input').addEventListener('blur',()=>document.body.classList.remove('keyboard-open'));
   $('sound-toggle').addEventListener('click',()=>{sound=!sound;storage.set('sound',sound);unlockAudio();preferences();if(sound)beep();});
   $('motion-toggle').addEventListener('click',()=>{motion=!motion;storage.set('motion',motion);preferences();});
-  $('retry-save').addEventListener('click',()=>{if(sending)return;$('save-status').textContent='기록을 다시 확인하고 있어요…';$('retry-save').hidden=true;flush();});
+  $('retry-save').addEventListener('click',()=>{ranking.retry();renderRanking();});
   $('show-rules').addEventListener('click',()=>$('rules-dialog').showModal());for(const id of ['close-rules','rules-ok'])$(id).addEventListener('click',()=>$('rules-dialog').close());
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){if(['playing','preparing','feedback'].includes(phase))finish(null,'left');else if(phase==='countdown')goHome();}else{warm();flush();}});
-  window.addEventListener('online',()=>{warm();flush();});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){if(['playing','preparing','feedback'].includes(phase))finish(null,'left');else if(phase==='countdown')goHome();}else{ranking.start();}});
+  window.addEventListener('online',()=>ranking.retry());
+  window.addEventListener('offline',renderRanking);
+  window.addEventListener('pagehide',()=>ranking.leaving());
   preferences();$('player-name').value=storage.get('player','');
   if(!C||!bank){$('start-button').disabled=true;$('name-error').textContent='문제를 불러오지 못했어요. 새로고침해 주세요.';return;}
   const errors=C.validation(bank);
   if(errors.length){$('start-button').disabled=true;$('name-error').textContent='문제를 준비하고 있어요. 선생님께 알려 주세요.';console.error(errors);return;}
-  sampler=new C.Sampler(bank,storage.get('sampling',{}));if(!base)$('mode-badge').textContent='개인 연습';
-  warm();flush();
+  sampler=new C.Sampler(bank,storage.get('sampling',{}));if(!ranking.url)$('mode-badge').textContent=ranking.configInvalid?'연속 정답 챌린지':'개인 연습';
+  screen('home');ranking.start();
 })();

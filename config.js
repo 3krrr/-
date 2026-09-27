@@ -1,6 +1,5 @@
-/* Public settings only. Never put credentials or a service-account key in this file. */
 window.QUIZ_CONFIG = {
-  apiBase: "",
-  soundDefault: true,
-  motionDefault: true
+  "appsScriptUrl": "https://script.google.com/macros/s/AKfycbwoL-9Vwz9p4a_8e_omcdGZ5EW-1ItiovahKwGi-MA0LE-pVNPSPLeXOhuG1JJcbNXd/exec",
+  "soundDefault": true,
+  "motionDefault": true
 };
